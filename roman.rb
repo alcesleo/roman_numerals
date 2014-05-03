@@ -27,12 +27,11 @@ class Roman
 
   private
 
-  def to_roman(number)
+  def to_roman(arabic)
     FACTORS.keys.reduce("") do |roman, div|
-      times, number = number.divmod(div)
+      times, arabic = arabic.divmod(div)
       roman << FACTORS[div] * times
     end
   end
-
 
 end
