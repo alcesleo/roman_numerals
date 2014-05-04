@@ -23,4 +23,18 @@ describe RomanNumerals do
     end
   end
 
+  describe '.to_arabic' do
+    it 'handles the basic numbers' do
+      basic_map.each do |arabic, roman|
+        RomanNumerals.to_arabic(roman).must_equal arabic
+      end
+    end
+
+    it 'handles some big numbers' do
+      RomanNumerals.to_arabic('CMLXXVIII').must_equal 978
+      RomanNumerals.to_arabic('M').must_equal 1000
+      RomanNumerals.to_arabic('MI').must_equal 1001
+    end
+  end
+
 end

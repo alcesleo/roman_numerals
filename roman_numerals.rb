@@ -23,4 +23,14 @@ module RomanNumerals
     end
   end
 
+  def self.to_arabic(roman)
+    FACTORS.to_a.reduce(0) do |arabic, (arabic_factor, roman_factor)|
+      while roman.start_with?(roman_factor)
+        roman.slice!(0, roman_factor.length)
+        arabic += arabic_factor
+      end
+      arabic
+    end
+  end
+
 end
