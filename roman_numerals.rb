@@ -17,9 +17,9 @@ module RomanNumerals
   }
 
   def self.to_roman(arabic)
-    FACTORS.keys.reduce("") do |roman, div|
-      times, arabic = arabic.divmod(div)
-      roman << FACTORS[div] * times
+    FACTORS.to_a.reduce("") do |roman, (arabic_factor, roman_factor)|
+      times, arabic = arabic.divmod(arabic_factor)
+      roman << roman_factor * times
     end
   end
 
