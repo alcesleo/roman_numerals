@@ -51,6 +51,10 @@ describe RomanNumerals do
     it 'throws un invalid numbers' do
       -> { RomanNumerals.to_arabic('IIXI') }.must_raise ArgumentError
     end
+
+    it 'throws on empty string' do
+      -> { RomanNumerals.to_arabic('') }.must_raise ArgumentError
+    end
   end
 
 end

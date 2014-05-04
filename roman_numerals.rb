@@ -28,6 +28,7 @@ module RomanNumerals
   end
 
   def self.to_arabic(roman)
+    raise ArgumentError.new('Invalid roman numeral') if roman.empty?
     roman = roman.upcase
 
     result = FACTORS.to_a.reduce(0) do |arabic, (arabic_factor, roman_factor)|
