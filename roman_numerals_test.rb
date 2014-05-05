@@ -48,7 +48,7 @@ describe RomanNumerals do
       lowercase.must_equal 'cmlxxviii' # does not alter original
     end
 
-    it 'throws un invalid numbers' do
+    it 'throws on invalid numbers' do
       -> { RomanNumerals.to_arabic('IIXI') }.must_raise ArgumentError
     end
 
