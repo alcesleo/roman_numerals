@@ -34,7 +34,7 @@ class Roman
     self.arabic == other.arabic
   end
 
-  def self.method_missing(method_name, *args, &block)
+  def self.method_missing(method_name, *)
     if matches_roman_regex?(method_name)
       new(method_name.to_s)
     else
