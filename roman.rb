@@ -36,7 +36,7 @@ class Roman
 
   def self.method_missing(method_name, *)
     if matches_roman_regex?(method_name)
-      new(method_name.to_s)
+      new(method_name)
     else
       super
     end
