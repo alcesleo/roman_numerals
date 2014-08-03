@@ -6,16 +6,10 @@ class Roman
 
   def initialize(numeral)
     if numeral.is_a? String
-      @arabic = RomanNumerals.to_arabic(numeral)
-      @roman  = numeral
+      @arabic, @roman = RomanNumerals.to_arabic(numeral), numeral
     elsif numeral.is_a? Integer
-      @arabic = numeral
-      @roman  = RomanNumerals.to_roman(numeral)
+      @arabic, @roman  = numeral, RomanNumerals.to_roman(numeral)
     end
-  end
-
-  def ==(other)
-    self.arabic == other.arabic
   end
 
   def to_i
@@ -34,6 +28,10 @@ class Roman
     define_method(operator) do |arg|
       Roman.new(self.arabic.public_send(operator, arg.arabic))
     end
+  end
+
+  def ==(other)
+    self.arabic == other.arabic
   end
 
   def self.method_missing(method_name, *args, &block)
