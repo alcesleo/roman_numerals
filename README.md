@@ -12,7 +12,7 @@ require './roman_numerals'
 
 RomanNumerals.to_roman(978)          # => "CMLXXVIII"
 RomanNumerals.to_arabic('CMLXXVIII') # => 978
-RomanNumerals.to_arabic('VXI')       # => ArgumentError: Invalid roman numeral
+RomanNumerals.to_arabic('VXI')       # ~> ArgumentError: Invalid roman numeral
 
 # Using the class
 require './roman'
