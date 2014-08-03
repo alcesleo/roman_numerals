@@ -33,8 +33,16 @@ describe Roman do
     Roman.respond_to?(:unrelated).must_equal false
   end
 
-  it 'throws on wrong input' do
-    -> { Roman.VIX }.must_raise ArgumentError
+  it 'ducktypes inputs as strings containing numerals' do
+    Roman.new(Roman.new(16)).must_equal subject
+  end
+
+  it 'fails on invalid type' do
+    -> { Roman.new(1.6) }.must_raise ArgumentError
+  end
+
+  it 'fails on invalid roman numeral' do
+    -> { Roman.new('VIX') }.must_raise ArgumentError
   end
 
   it 'handles maths' do

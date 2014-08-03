@@ -5,10 +5,10 @@ class Roman
   attr_reader :arabic, :roman
 
   def initialize(numeral)
-    if numeral.is_a? String
-      @arabic, @roman = RomanNumerals.to_arabic(numeral), numeral
-    elsif numeral.is_a? Integer
-      @arabic, @roman  = numeral, RomanNumerals.to_roman(numeral)
+    if numeral.is_a? Integer
+      @arabic, @roman = numeral, RomanNumerals.to_roman(numeral)
+    else
+      @arabic, @roman = RomanNumerals.to_arabic(numeral.to_s), numeral
     end
   end
 
