@@ -18,7 +18,7 @@ module RomanNumerals
 
   def self.to_roman(arabic)
     unless arabic.integer? and arabic >= 1
-      raise ArgumentError.new('Roman numerals can only represent positive integers')
+      fail ArgumentError.new('Roman numerals can only represent positive integers')
     end
 
     FACTORS.to_a.reduce("") do |roman, (arabic_factor, roman_factor)|
@@ -28,7 +28,7 @@ module RomanNumerals
   end
 
   def self.to_arabic(roman)
-    raise ArgumentError.new('Invalid roman numeral') if roman.empty?
+    fail ArgumentError.new('Invalid roman numeral') if roman.empty?
     roman = roman.upcase
 
     result = FACTORS.to_a.reduce(0) do |arabic, (arabic_factor, roman_factor)|
@@ -39,7 +39,7 @@ module RomanNumerals
       arabic
     end
 
-    raise ArgumentError.new('Invalid roman numeral') unless roman.empty?
+    fail ArgumentError.new('Invalid roman numeral') unless roman.empty?
     result
   end
 
