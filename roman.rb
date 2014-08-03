@@ -35,7 +35,7 @@ class Roman
   end
 
   def self.method_missing(method_name, *args, &block)
-    if matches_roman_regex(method_name)
+    if matches_roman_regex?(method_name)
       new(method_name.to_s)
     else
       super
@@ -43,13 +43,13 @@ class Roman
   end
 
   def self.respond_to_missing?(method_name, include_private = false)
-    matches_roman_regex(method_name)
+    matches_roman_regex?(method_name)
   end
 
   private
 
-  def self.matches_roman_regex(str)
-    /[MDCLXVI]+/ === str.to_s
+  def self.matches_roman_regex?(str)
+    !!(str.to_s =~ /[MDCLXVI]+/)
   end
 
 end
