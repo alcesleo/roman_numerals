@@ -27,10 +27,10 @@ Roman.new(16) == Roman.new('XVI') # => true
 # Conversions
 sixteen = Roman.new(16)
 sixteen.to_i # => 16
-sixteen.to_s # => XVI
+sixteen.to_s # => "XVI"
 
 # Magic numerals!
-Romaan.XVI # => #<Roman XVI>
+Roman.XVI # => #<Roman XVI>
 
 # Maths!
 Roman.XVI + Roman.VI         # => #<Roman XXII>
