@@ -33,6 +33,11 @@ describe Roman do
     Roman.respond_to?(:unrelated).must_equal false
   end
 
+  it "throws NoMethodError correctly" do
+    -> { Roman.wrong }.must_raise NoMethodError
+    -> { Roman.wrong('args') }.must_raise NoMethodError
+  end
+
   it 'ducktypes inputs as strings containing numerals' do
     Roman.new(Roman.new(16)).must_equal subject
   end
