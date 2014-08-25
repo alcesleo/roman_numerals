@@ -34,7 +34,7 @@ class Roman
     self.arabic == other.arabic
   end
 
-  def self.method_missing(method_name, *)
+  def self.method_missing(method_name)
     if valid_roman_numeral?(method_name)
       new(method_name)
     else
